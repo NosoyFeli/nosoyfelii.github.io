@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/e.css">
+    <link rel="stylesheet" href="js/bootstrap.bundle.js">
+    <title>Helafeliz</title>
+</head>
+
+<header class="fixed-top text-center border border-5 border-info">
+        <h1><img src="img/hfeli.jpg" alt="" id="img"></h1>
+</header>
+<body class="border border-5 border-info">
+
+    <div class="contenedor border border-5 border-info text-center" id="p1">
+        <div class="row">
+            <div class="col-6">
+                
+                <h1 class="p-4">
+                    <button class="btn btn-secondary btn-outline-warning" onclick="ta()">
+                        <img src="img/man.png" alt="" class="img1">
+                    </button>
+                    <p class="text-warning"><b>Mango</b></p>
+                    <button class="btn btn-secondary  btn-outline-danger" onclick="fre()">
+                        <img src="img/fre.png" alt="" class="img2">
+                    </button>
+                    <p class="text-danger"><b>Fresa</b></p>
+                </h1>
+            </div>
+            <div class="col-6">
+                <h1 class="p-4">
+                    <button class="btn btn-secondary btn-outline-light" onclick="co()">
+                        <img src="img/co.png" alt="" class="img3">
+                    </button>
+                    <p class="text-white"><b>Coco</b></p>
+                    <button class="btn btn-secondary btn-outline-info" onclick="men()">
+                        <img src="img/men.png" alt="" class="img4">
+                    </button>
+                    <p class="text-info"><b>Menta</b></p>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor text-center m-4" id="p2">
+        <div class="row">
+            <div class="col-12 text-center border border-5 border-info" id="l">
+                <h1>
+                    <label id="h" class="m-2 p-2"></label> <br>
+                    <label id="pr" class="m-2 p-2"></label> <br>
+                    <h1>Cantidad: <input type="text" pattern="[0-9]+" id="cantid"></h1> <br>
+                    <button class="btn col-6 btn-lg btn-outline-info m-2 p-2" id="bt" onclick="lis()">Listo</button>
+                </h1>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="fixed-bottom border border-5 border-info text-center">
+    <h1>
+        <label id="ot"></label>
+        <button class="btn btn-secondary btn-outline-secondary text-light" onclick="re()">Ordenar</button>
+    </h1>
+</footer>
+<script>
+    document.getElementById("p2").classList.add("b")
+    document.getElementById("ot").innerHTML = "Total: 0 $"
+    var to = 0;
+    var pr = 0;
+    function ta(){
+        document.getElementById("l").classList.add("l1")
+        document.getElementById("bt").classList.add("bt1")
+        document.getElementById("l").classList.remove("l2")
+        document.getElementById("bt").classList.remove("bt2")
+        document.getElementById("l").classList.remove("l3")
+        document.getElementById("bt").classList.remove("bt3")
+        document.getElementById("l").classList.remove("l4")
+        document.getElementById("bt").classList.remove("bt4")
+        document.getElementById("h").innerHTML = "Helado de Mango";
+        document.getElementById("pr").innerHTML = "Precio: 2 $";
+        document.getElementById("cantid").value = "";
+        pr = 2;
+        document.getElementById("p2").classList.remove("b")
+        document.getElementById("p1").classList.add("b")
+    }
+
+    function fre(){
+        document.getElementById("l").classList.add("l2")
+        document.getElementById("bt").classList.add("bt2")
+        document.getElementById("l").classList.remove("l1")
+        document.getElementById("bt").classList.remove("bt1")
+        document.getElementById("l").classList.remove("l3")
+        document.getElementById("bt").classList.remove("bt3")
+        document.getElementById("l").classList.remove("l4")
+        document.getElementById("bt").classList.remove("bt4")
+        document.getElementById("h").innerHTML = "Helado de Fresa";
+        document.getElementById("pr").innerHTML = "Precio: 3 $";
+        document.getElementById("cantid").value = "";
+        pr = 3;
+        document.getElementById("p2").classList.remove("b")
+        document.getElementById("p1").classList.add("b")
+    }
+
+    function co(){
+        document.getElementById("l").classList.add("l3")
+        document.getElementById("bt").classList.add("bt3")
+        document.getElementById("l").classList.remove("l1")
+        document.getElementById("bt").classList.remove("bt1")
+        document.getElementById("l").classList.remove("l2")
+        document.getElementById("bt").classList.remove("bt2")
+        document.getElementById("l").classList.remove("l4")
+        document.getElementById("bt").classList.remove("bt4")
+        document.getElementById("h").innerHTML = "Helado de Coco";
+        document.getElementById("pr").innerHTML = "Precio: 4 $";
+        document.getElementById("cantid").value = "";
+        pr = 4;
+        document.getElementById("p2").classList.remove("b")
+        document.getElementById("p1").classList.add("b")
+    }
+
+        function men(){
+        document.getElementById("l").classList.add("l4")
+        document.getElementById("bt").classList.add("bt4")
+        document.getElementById("l").classList.remove("l1")
+        document.getElementById("bt").classList.remove("bt1")
+        document.getElementById("l").classList.remove("l2")
+        document.getElementById("bt").classList.remove("bt2")
+        document.getElementById("l").classList.remove("l3")
+        document.getElementById("bt").classList.remove("bt3")
+        document.getElementById("h").innerHTML = "Helado de Menta";
+        document.getElementById("pr").innerHTML = "Precio: 1 $";
+        document.getElementById("cantid").value = "";
+        pr = 1;
+        document.getElementById("p2").classList.remove("b")
+        document.getElementById("p1").classList.add("b")
+    }
+
+    function lis(){
+        document.getElementById("p2").classList.add("b")
+        document.getElementById("p1").classList.remove("b")
+        var c = parseInt(document.getElementById("cantid").value) || 0;
+        var st = c * pr;
+        to += st;
+        document.getElementById("ot").innerHTML = "Total: " + to + " $";
+
+    }
+    function re(){
+        to = 0;
+        pr = 0;
+        document.getElementById("ot").innerHTML = "Tota: 0 $";
+        alert("Gracias por su compra, vuelva pronto");
+    }
+</script>
+</html>
